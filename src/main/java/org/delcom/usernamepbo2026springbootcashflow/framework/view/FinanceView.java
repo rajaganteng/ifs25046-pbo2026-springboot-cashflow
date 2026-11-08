@@ -8,6 +8,7 @@ import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -62,7 +63,15 @@ public class FinanceView extends VerticalLayout {
 
         configureGrid();
         configureToolbarFields();
-        add(new H1("Cashflow"), buildSummary(), buildToolbar(), statusLabel, grid);
+        // Semua konten dibungkus <main> agar punya landmark utama (aksesibilitas & SEO)
+        Main main = new Main(new H1("Cashflow"), buildSummary(), buildToolbar(), statusLabel, grid);
+        main.setSizeFull();
+        main.getStyle()
+                .set("display", "flex")
+                .set("flex-direction", "column")
+                .set("gap", "var(--lumo-space-m)")
+                .set("box-sizing", "border-box");
+        add(main);
         refreshAll();
     }
 
