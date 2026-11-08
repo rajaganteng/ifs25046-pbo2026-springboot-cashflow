@@ -1,13 +1,6 @@
 spring:
   application:
     name: username-pbo2026-springboot-cashflow
-  devtools:
-    restart:
-      enabled: true
-      poll-interval: 1s
-      quiet-period: 400ms
-    liveload:
-      enabled: true
 
 server:
   port: ${APP_PORT:8080}
@@ -17,5 +10,3 @@ server:
 
 vaadin:
   launch-browser: false
-  liveReload:
-    enabled: true
