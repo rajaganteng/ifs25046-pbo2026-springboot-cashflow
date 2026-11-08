@@ -1,6 +1,12 @@
 spring:
   application:
     name: username-pbo2026-springboot-cashflow
+  web:
+    resources:
+      cache:
+        cachecontrol:
+          max-age: 365d
+          cache-public: true
 
 server:
   port: ${APP_PORT:8080}
