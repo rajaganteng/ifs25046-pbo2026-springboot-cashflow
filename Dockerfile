@@ -1,10 +1,10 @@
-# Tahap 1: build jar
+# Tahap 1: build jar (profile production wajib untuk Vaadin)
 FROM maven:3.9-eclipse-temurin-25 AS build
 WORKDIR /app
 COPY pom.xml .
-RUN mvn -B dependency:go-offline
+RUN mvn -B -Pproduction dependency:go-offline
 COPY src ./src
-RUN mvn -B package -DskipTests
+RUN mvn -B -Pproduction package -DskipTests
 
 # Tahap 2: jalankan jar
 FROM eclipse-temurin:25-jre
