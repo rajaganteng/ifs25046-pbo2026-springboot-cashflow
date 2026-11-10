@@ -9,7 +9,7 @@ spring:
           cache-public: true
 
 server:
-  port: ${APP_PORT:8080}
+  port: ${PORT:${APP_PORT:8080}}
   compression:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json,image/svg+xml

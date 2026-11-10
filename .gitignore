@@ -4,4 +4,5 @@ target/
 *.iml
 node_modules/
 src/main/frontend/generated/
+frontend/generated/
 src/main/bundles/

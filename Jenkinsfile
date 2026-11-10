@@ -40,7 +40,7 @@ pipeline {
         stage('Build & Test') {
             agent {
                 docker {
-                    image 'eclipse-temurin:25-jdk'
+                    image 'eclipse-temurin:21-jdk'
                     reuseNode true
                     args '-u root -v /var/jenkins_home/.m2:/var/jenkins_home/.m2'
                 }
@@ -173,7 +173,7 @@ pipeline {
         stage('Package Application') {
             agent {
                 docker {
-                    image 'eclipse-temurin:25-jdk'
+                    image 'eclipse-temurin:21-jdk'
                     reuseNode true
                     args '-u root'
                 }
